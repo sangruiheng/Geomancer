@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><{:C('PROJECT_TITLE.ICON_TITLE')}>|v1.0</title>
+    <include file="Common:common" />
+    <load href="__PUBLIC__/js/main.js" />
+</head>
+
+<body>
+<!--header begin-->
+<div class="com-headerBox">
+    <div class="com-headerTop com-bg">
+        <div class="com-logo"><{:C('PROJECT_TITLE.LOGIN_TITLE')}> | 后台管理系统</div>
+        <div class="com-htRight">
+            <div class="com-userHea" style="background:url(/Public/Manage/images/default_headImg.png) center no-repeat;background-size: cover;"></div>
+            <div class="com-userName"><{$Think.session.reName}></div>
+            <ul class="com-heaMenu">
+                <li><a href="javascript:void(0)"><i class="fa fa-home"></i> 首页</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-flag"></i> 皮肤</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-cog"></i> 设置</a></li>
+                <li><a href="javascript:void(0)"><i class="fa fa-question-circle"></i> 帮助</a></li>
+                <li><a class="topLogOut" href="javascript:void(0)"><i class="fa fa-power-off"></i> 退出</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="com-hederMenu">
+        <div class="com-hideIcon" title="展开左侧菜单" data-state="hide"><i class="fa fa-bars"></i></div>
+        <ul class="com-hmUl">
+            <volist name="moduleTypeList" id="vo">
+                <li><a class="com-TopMenu" data-id="<{$vo.id}>" href="javascript:void(0)" ><i class="fa fa-<{$vo.moduleIcon}>"></i> <{$vo.moduleName}></a></li>
+            </volist>
+        </ul>
+    </div>
+</div>
+
+
+
+
+<!--header end-->
+
+
+
+<!--left begin-->
+<div class="com-leftBox">
+    <div class="com-lbLeftShadow"></div>
+    <ul class="com-leftMenu">
+
+    </ul>
+</div>
+<!--left begin-->
+
+<!--right begin-->
+<div class="com-rightBox">
+    <iframe name="right" id="icpnt_iframe" frameborder="0" scrolling="auto" width="100%" height="100%" src="__APP__/Index/welcome"></iframe>
+</div>
+<!--right end-->
+</body>
+</html>

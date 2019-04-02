@@ -1,0 +1,297 @@
+[ 2019-04-02T21:22:05+08:00 ] 127.0.0.1 /manage.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000075s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000602s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000165s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0013s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0016s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = 0 AND `status` = 0 AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000198s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000405s ]
+NOTIC: [8] Undefined index: p /var/www/html/Geomancer/Application/Runtime/Cache/Manage/737aa8fc5877d411a50443dade831133.php 第 35 行.
+NOTIC: [8] Undefined index: keyWord /var/www/html/Geomancer/Application/Runtime/Cache/Manage/737aa8fc5877d411a50443dade831133.php 第 36 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009496s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009709s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000143s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000291s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000096s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000193s ]
+
+[ 2019-04-02T21:22:05+08:00 ] 127.0.0.1 /manage.php/Index/welcome
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000116s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000048s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000124s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0005s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0005s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = 0 AND `status` = 0 AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000131s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000697s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000798s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000057s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000134s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000051s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000134s ]
+
+[ 2019-04-02T21:22:06+08:00 ] 127.0.0.1 /manage.php/Index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000056s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000346s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000121s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0013s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0015s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = 0 AND `status` = 0 AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000379s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000739s ]
+NOTIC: [8] Undefined index: p /var/www/html/Geomancer/Application/Runtime/Cache/Manage/737aa8fc5877d411a50443dade831133.php 第 35 行.
+NOTIC: [8] Undefined index: keyWord /var/www/html/Geomancer/Application/Runtime/Cache/Manage/737aa8fc5877d411a50443dade831133.php 第 36 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012449s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012687s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000142s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000341s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000113s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000310s ]
+
+[ 2019-04-02T21:22:06+08:00 ] 127.0.0.1 /manage.php/Index/welcome
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000112s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000039s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000107s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0005s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0004s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = 0 AND `status` = 0 AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000046s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000119s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000544s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000615s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000040s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000101s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000035s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000096s ]
+
+[ 2019-04-02T21:22:07+08:00 ] 127.0.0.1 /manage.php/Common/getModuleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000159s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000091s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0005s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0004s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = '1' AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0004s ]
+
+[ 2019-04-02T21:22:07+08:00 ] 127.0.0.1 /manage.php/System/moduleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000113s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000108s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0004s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0004s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = 0 AND `status` = 0 AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0003s ]
+SQL: SELECT `id`,`moduleName` FROM `icpnt_module` WHERE `parent_id` = 0  [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: keyWord /var/www/html/Geomancer/Application/Manage/Controller/SystemController.class.php 第 26 行.
+NOTIC: [8] Undefined index: p /var/www/html/Geomancer/Application/Manage/Controller/CommonController.class.php 第 380 行.
+SQL: SELECT * FROM `icpnt_module` WHERE ( id is not null ) ORDER BY id desc LIMIT 0,10   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `icpnt_module` WHERE ( id is not null ) LIMIT 1   [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000202s ]
+NOTIC: [8] Undefined index: p /var/www/html/Geomancer/Application/Runtime/Cache/Manage/5832f1e4fc4da96e659c0accbfa292cd.php 第 35 行.
+NOTIC: [8] Undefined index: keyWord /var/www/html/Geomancer/Application/Runtime/Cache/Manage/5832f1e4fc4da96e659c0accbfa292cd.php 第 36 行.
+NOTIC: [8] Undefined index: parent_id /var/www/html/Geomancer/Application/Runtime/Cache/Manage/5832f1e4fc4da96e659c0accbfa292cd.php 第 69 行.
+NOTIC: [8] Undefined index: parent_id /var/www/html/Geomancer/Application/Runtime/Cache/Manage/5832f1e4fc4da96e659c0accbfa292cd.php 第 69 行.
+NOTIC: [8] Undefined index: parent_id /var/www/html/Geomancer/Application/Runtime/Cache/Manage/5832f1e4fc4da96e659c0accbfa292cd.php 第 69 行.
+NOTIC: [8] Undefined index: parent_id /var/www/html/Geomancer/Application/Runtime/Cache/Manage/5832f1e4fc4da96e659c0accbfa292cd.php 第 69 行.
+NOTIC: [8] Undefined index: parent_id /var/www/html/Geomancer/Application/Runtime/Cache/Manage/5832f1e4fc4da96e659c0accbfa292cd.php 第 69 行.
+NOTIC: [8] Undefined index: parent_id /var/www/html/Geomancer/Application/Runtime/Cache/Manage/5832f1e4fc4da96e659c0accbfa292cd.php 第 69 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007876s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007969s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000212s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000333s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000041s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000105s ]
+
+[ 2019-04-02T21:22:08+08:00 ] 127.0.0.1 /manage.php/Common/getModuleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000126s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000089s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0004s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0004s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = '16' AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0003s ]
+
+[ 2019-04-02T21:22:08+08:00 ] 127.0.0.1 /manage.php/Common/getModuleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000054s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000363s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000107s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0009s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0009s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = '16' AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0008s ]
+
+[ 2019-04-02T21:22:08+08:00 ] 127.0.0.1 /manage.php/Banner/bannerList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000110s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000038s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000102s ]
+ERR: 无法加载控制器:Banner
+
+[ 2019-04-02T21:22:08+08:00 ] 127.0.0.1 /manage.php/Banner/bannerList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000107s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000102s ]
+ERR: 无法加载控制器:Banner
+
+[ 2019-04-02T21:22:10+08:00 ] 127.0.0.1 /manage.php/Common/getModuleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000368s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000122s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000312s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0010s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0011s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0011s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = '52' AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0009s ]
+
+[ 2019-04-02T21:22:11+08:00 ] 127.0.0.1 /manage.php/Common/getModuleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000362s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000146s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0010s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0007s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0011s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = '61' AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0013s ]
+
+[ 2019-04-02T21:22:12+08:00 ] 127.0.0.1 /manage.php/Common/getModuleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000114s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000033s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000091s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0003s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0004s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = '70' AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0003s ]
+
+[ 2019-04-02T21:22:12+08:00 ] 127.0.0.1 /manage.php/User/userList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000107s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000102s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0009s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0009s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = 0 AND `status` = 0 AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0018s ]
+NOTIC: [8] Undefined index: p /var/www/html/Geomancer/Application/Manage/Controller/UserController.class.php 第 13 行.
+SQL: SHOW COLUMNS FROM `icpnt_user` [ RunTime:0.0074s ]
+SQL: SELECT * FROM `icpnt_user` WHERE `addTime` <> '' ORDER BY id desc LIMIT 0,10   [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `icpnt_user` WHERE `addTime` <> '' LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [2] urlencode() expects parameter 1 to be string, array given /var/www/html/Geomancer/Application/Manage/Controller/UserController.class.php 第 26 行.
+NOTIC: [8] Undefined variable: page /var/www/html/Geomancer/Application/Manage/Controller/UserController.class.php 第 26 行.
+NOTIC: [2] Creating default object from empty value /var/www/html/Geomancer/Application/Manage/Controller/UserController.class.php 第 26 行.
+NOTIC: [8] Undefined property: stdClass::$parameter /var/www/html/Geomancer/Application/Manage/Controller/UserController.class.php 第 26 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000246s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000485s ]
+NOTIC: [8] Undefined index: p /var/www/html/Geomancer/Application/Runtime/Cache/Manage/f4bfb398e6e5869fe865bbe1f6b2fb61.php 第 36 行.
+NOTIC: [8] Undefined index: keyWord /var/www/html/Geomancer/Application/Runtime/Cache/Manage/f4bfb398e6e5869fe865bbe1f6b2fb61.php 第 37 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015712s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016022s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000131s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000307s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000110s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000287s ]
+
+[ 2019-04-02T21:22:12+08:00 ] 127.0.0.1 /manage.php/Common/getModuleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000057s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000365s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000103s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0010s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0009s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = '61' AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0007s ]
+
+[ 2019-04-02T21:22:14+08:00 ] 127.0.0.1 /manage.php/Common/getModuleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000367s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000137s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0010s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0010s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = '52' AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0007s ]
+
+[ 2019-04-02T21:22:14+08:00 ] 127.0.0.1 /manage.php/Common/getModuleList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000205s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000059s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000168s ]
+SQL: SHOW COLUMNS FROM `icpnt_group` [ RunTime:0.0004s ]
+SQL: SELECT `rules` FROM `icpnt_group` WHERE `id` = '1' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `icpnt_module` [ RunTime:0.0004s ]
+SQL: SELECT `id`,`moduleName`,`moduleLink`,`moduleIcon` FROM `icpnt_module` WHERE `parent_id` = '52' AND `id` IN ('1','2','3','4','5','6','7','8','84','9','10','11','16','45','46','66','74','49','83','52','61','70','44','90') ORDER BY sort asc  [ RunTime:0.0003s ]
+
