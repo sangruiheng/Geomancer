@@ -30,7 +30,7 @@ $(document).ready(function(e) {
     				$.closeLoading(function(){
     					location.href= ret.url;
     				});
-                },1500);
+                },500);
             }else{
             	$.show({
         			title : '提示',

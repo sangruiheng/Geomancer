@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <include file="Common:common" />
+    <load href="__PUBLIC__/css/common/rightCommon.css" />
+    <load href="__PUBLIC__/tools/ueditor1_4_3-utf8-php/ueditor.config.js" />
+    <load href="__PUBLIC__/tools/ueditor1_4_3-utf8-php/ueditor.all.min.js" />
+    <load href="__PUBLIC__/tools/ueditor1_4_3-utf8-php/lang/zh-cn/zh-cn.js" />
+    <script>
+        $(document).ready(function(e) {
+            getEditData(function(jdata){
+
+            });
+
+
+        });
+    </script>
+
+</head>
+
+<body>
+<!--alert弹窗Start  -->
+<div id="top-alert" class="fixed alert alert-error" style="display:none;">
+    <button class="close fixed" style="margin-top: 4px;">&times;</button>
+    <div class="alert-content">这是内容</div>
+</div>
+<!--alert弹窗end  -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#"><i class="fa fa-plus" aria-hidden="true"></i> <span id="changeTitle"></span>风水师协议书</a>
+    </div>
+</nav>
+
+<div class="add-box">
+    <form class="addForm ajax-alert" id="form1" name="form1" method="post" action="__APP__/Web/addWeb/controller/Web/backUrl/webGeomancerAgreement/table/web">
+        <input name="id" type="hidden" id="id" value=" <{$webList.id}>" />
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+
+            <tr>
+                <td align="center">风水师协议书<font color="red">&nbsp;&nbsp;*</font></td>
+                <td colspan="3">
+                    <textarea name="web_geomancer_agreement" id="web_geomancer_agreement" cols="45" rows="5" style="width:100%;height:200px; margin:10px 0px;"  required>
+                        <{$webList.web_geomancer_agreement}>
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <button class="btn btn-success ajax-post" type="submit"  id="saveButton" target-form="form-horizontal"><i class="fa fa-check" aria-hidden="true"></i> 修改</button>
+                    <button type="button" class="btn btn-default" id="cancelButton"><i class="fa fa-times" aria-hidden="true"></i> 取消</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

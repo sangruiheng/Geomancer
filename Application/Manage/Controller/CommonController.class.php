@@ -88,6 +88,8 @@ class CommonController extends Controller {
     }
 
 
+
+
 	
 	//添加、编辑数据的公共方法
 	public function addData(){
