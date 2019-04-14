@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <include file="Common:common"/>
+    <load href="__PUBLIC__/css/common/rightCommon.css"/>
+</head>
+
+<body>
+<!--alert弹窗Start  -->
+<div id="top-alert" class="fixed alert alert-error" style="display:none;">
+    <button class="close fixed" style="margin-top: 4px;">&times;</button>
+    <div class="alert-content">这是内容</div>
+</div>
+<!--alert弹窗end  -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">客服列表</a>
+    </div>
+    <div>
+        <form class="navbar-form navbar-right listSearch" role="search" method="get" action="__ACTION__">
+            <div class="form-group">
+                <input name="keyWord" type="text" class="form-control" id="keyWord" placeholder="请输入关键词进行搜索">
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> 搜索</button>
+        </form>
+    </div>
+</nav>
+
+<div class="list-box">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th>选择</th>
+            <th>编号</th>
+            <th>客服名称</th>
+            <th>客服微信</th>
+            <th>客服手机号</th>
+            <th>关联大师人数</th>
+            <th>关联用户人数</th>
+        </tr>
+        </thead>
+        <tbody>
+        <volist name="list" id="vo">
+            <tr>
+                <td>
+                    <input type="checkbox" class="customer_id" name="customer_id" value="<{$vo.id}>"/>
+                </td>
+
+                <td><{$vo.id}></td>
+                <td><{$vo.customer_name}></td>
+                <td><{$vo.customer_wechat}></td>
+                <td><{$vo.customer_tel}></td>
+                <td><{$vo.count_geomancer}></td>
+                <td><{$vo.count_user}></td>
+            </tr>
+        </volist>
+        </tbody>
+        <tr>
+            <td colspan="10" class="td_2">
+                <input type="button" name="button" class="btn btn-primary" id='button' value="确  定"
+                       onclick="window_opener();" style="width: 100px;height: 30px;">
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<ul class="pagination">
+    <{$page}>
+</ul>
+<script src="__PUBLIC__/js/status/status.js"></script>
+<script>
+
+    var customerIDS = [];
+    var editcustomerIDS = [];
+
+    showcustomerID();
+    checkcustomerID();
+
+    //将sessionStorage的customer_id选中
+    function showcustomerID() {
+        if(sessionStorage.getItem('customerID')){
+            var sessionStorage_customerIDS = JSON.parse(sessionStorage.getItem('customerID'));
+            // console.log(sessionStorage_customerIDS);
+            var showcustomerIDS = $('tbody .customer_id');
+            // console.log(showcustomerIDS);
+            $.each(sessionStorage_customerIDS,function (ind, val) {
+                $.each(showcustomerIDS, function (index, value) {
+                    var sessionStoragecustomer_id = val;
+                    var showcustomer_id = $(value).val();
+                    // console.log(sessionStoragecustomer_id)
+                    // console.log(showcustomer_id)
+                    if(sessionStoragecustomer_id == showcustomer_id){
+                        $(showcustomerIDS[index]).attr('checked', true);
+                    }
+
+                });
+            });
+        }
+    }
+
+
+    //控制复选框
+    function checkcustomerID() {
+        $(document).on("click", ".customer_id", function () {
+            var that = $(this);
+            var id = that.val();
+            if ($(this).attr("checked")) {
+                savecustomerID(id)
+            } else {
+                clearcustomerID(id);
+            }
+
+        })
+    }
+
+    //加入sessionStorage
+    function savecustomerID(customer_id) {
+        if(sessionStorage.getItem('customerID')){
+            editcustomerIDS = JSON.parse(sessionStorage.getItem('customerID'));
+            // console.log(typeof  editcustomerIDS)
+            editcustomerIDS.push(customer_id);
+            sessionStorage.setItem('customerID', JSON.stringify(editcustomerIDS));
+
+        }else{
+            customerIDS.push(customer_id);
+            sessionStorage.setItem('customerID', JSON.stringify(customerIDS));
+        }
+
+    }
+
+    //移除sessionStorage
+    function clearcustomerID(customer_id) {
+        if (JSON.parse(sessionStorage.getItem('customerID')).indexOf(customer_id) != -1) {
+            var newarr = JSON.parse(sessionStorage.getItem('customerID'));
+            var customerIDkey = newarr.indexOf(customer_id);
+            var x = newarr.splice(customerIDkey, 1)
+            sessionStorage.setItem('customerID', JSON.stringify(newarr));
+        }
+    }
+
+
+    //选择返回.
+    function window_opener() {
+        var obj = document.getElementsByName('customer_id'); //选择所有name="'test'"的对象，返回数组
+        //取到对象数组后，我们来循环检测它是不是被选中
+        var s = '';
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i].checked) s += obj[i].value + ','; //如果选中，将value添加到变量s中
+        }
+
+        //那么现在来检测s的值就知道选中的复选框的值了
+        if (s == '') {
+            alert('你还没有选择任何内容！');
+            return false;
+        };
+        var customer_ids = JSON.parse(sessionStorage.getItem('customerID')).join();
+
+        window.opener.document.getElementById('customer_id').value = customer_ids;
+
+        window.close();
+    }
+</script>
+</body>
+</html>

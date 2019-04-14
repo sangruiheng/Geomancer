@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <include file="Common:common"/>
+    <load href="__PUBLIC__/css/common/rightCommon.css"/>
+    <load href="__PUBLIC__/js/customer/customer.js"/>
+
+
+
+    <script>
+        var page1 = 1;
+        var arr1 = [];
+        var page2 = 1;
+        var arr2 = [];
+        $(document).ready(function (e) {
+            openList1();
+            openList2();
+
+            getEditData(function (e) {
+                editOpenlist1(e);
+                editOpenlist2(e);
+
+            });
+        });
+
+
+    </script>
+    <style>
+        /*复选框样式*/
+        .checkList {
+            border: 0 !important;
+            cursor: pointer;
+        }
+
+        .checkList tr:last-child > td {
+            border-bottom: 0;
+        }
+
+        .checkList td {
+            text-align: center;
+        }
+
+        .checkList {
+            border: 0 !important;
+            cursor: pointer;
+        }
+
+        .checkList tr:last-child > td {
+            border-bottom: 0;
+        }
+
+        .checkList td {
+            text-align: center;
+        }
+
+
+        /*check搜索*/
+        .s-search>input {
+            float: left;
+            width: 60%;
+        }
+        .s-search>button {
+            float: left;
+            margin-left: 10px;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+<!--alert弹窗Start  -->
+<div id="top-alert" class="fixed alert alert-error" style="display:none;">
+    <button class="close fixed" style="margin-top: 4px;">&times;</button>
+    <div class="alert-content">这是内容</div>
+</div>
+<!--alert弹窗end  -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#"><i class="fa fa-plus" aria-hidden="true"></i> <span id="changeTitle">添加</span>客服</a>
+    </div>
+</nav>
+
+<div class="add-box">
+    <form class="addForm ajax-alert" id="form1" name="form1" method="post"
+          action="__APP__/Customer/addCustomerData/controller/Customer/backUrl/customerList/table/customer">
+        <input name="id" type="hidden" id="id" value="<{$_GET['id']}>"/>
+        <input name="user_id" type="hidden" id="user_id" value=""/>
+        <input name="geomancer_id" type="hidden" id="geomancer_id" value=""/>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+
+            <tr>
+                <td align="center">客服名称</td>
+                <td><input type="text" name="customer_name" id="customer_name" class="form-control"
+                           placeholder="请输入客服名称"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">客服微信</td>
+                <td><input type="text" name="customer_wechat" id="customer_wechat" class="form-control"
+                           placeholder="请输入客服微信"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">客服手机号</td>
+                <td><input type="text" name="customer_tel" id="customer_tel" class="form-control"
+                           placeholder="请输入客服手机号"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">选择用户</td>
+                <td style="padding:0;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="checkList">
+                        <tbody id="checkList">
+                        <tr>
+                            <td colspan="4">
+                                数据加载中…
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">选择大师</td>
+                <td style="padding:0;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="checkList">
+                        <tbody id="checkList2">
+                        <tr>
+                            <td colspan="4">
+                                数据加载中…
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <button class="btn btn-success ajax-post" type="submit" id="saveButton"
+                            target-form="form-horizontal"><i class="fa fa-check" aria-hidden="true"></i> 添加
+                    </button>
+                    <button type="button" class="btn btn-default" id="cancelButton"><i class="fa fa-times"
+                                                                                       aria-hidden="true"></i> 取消
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+</body>
+</html>

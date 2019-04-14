@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <include file="Common:common"/>
+    <load href="__PUBLIC__/css/common/rightCommon.css"/>
+    <style>
+        label {
+            padding: 0 10px;
+            margin: 0;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function (e) {
+
+        });
+    </script>
+</head>
+
+<body>
+<!--alert弹窗Start  -->
+<div id="top-alert" class="fixed alert alert-error" style="display:none;">
+    <button class="close fixed" style="margin-top: 4px;">&times;</button>
+    <div class="alert-content">这是内容</div>
+</div>
+<!--alert弹窗end  -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">举报详情</a>
+    </div>
+    <div>
+        <form class="navbar-form navbar-right listSearch" role="search" method="get" action="__ACTION__">
+            <div class="form-group">
+            </div>
+        </form>
+    </div>
+</nav>
+
+<div class="list-box">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+
+        <tr>
+            <td align="center">用户昵称</td>
+            <td><{$articleReport.user.nickName}></td>
+        </tr>
+
+        <tr>
+            <td align="center">大师昵称</td>
+            <td><{$articleReport.article.geomancer.geomancer_name}></td>
+        </tr>
+
+        <tr>
+            <td align="center">文章内容</td>
+            <td><{$articleReport.article.article_content}></td>
+        </tr>
+
+        <tr>
+            <td align="center">举报图片</td>
+            <td>
+                <div class="upload-listDiv">
+                    <img src="/Uploads/Manage/' + response.url + '" width="120" height="120">
+                    <input type="hidden" name="hid[]" value="/Uploads/Manage/' + response.url + '">
+                    <div class="upload-ldButton" data-url="' + response.url + '">
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td align="center">举报内容</td>
+            <td><{$articleReport.article_report_content}></td>
+        </tr>
+
+        <tr>
+            <td align="center">反馈类型</td>
+            <td><{$articleReport.feedback.feedback_title}></td>
+        </tr>
+
+
+        <tr>
+            <td align="center">举报时间</td>
+            <td><{$articleReport.article_report_addtime}></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+

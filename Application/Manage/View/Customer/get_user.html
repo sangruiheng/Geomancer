@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <include file="Common:common"/>
+    <load href="__PUBLIC__/css/common/rightCommon.css"/>
+</head>
+
+<body>
+<!--alert弹窗Start  -->
+<div id="top-alert" class="fixed alert alert-error" style="display:none;">
+    <button class="close fixed" style="margin-top: 4px;">&times;</button>
+    <div class="alert-content">这是内容</div>
+</div>
+<!--alert弹窗end  -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">用户管理</a>
+    </div>
+    <div>
+        <form class="navbar-form navbar-right listSearch" role="search" method="get" action="__ACTION__">
+            <div class="form-group">
+                <input name="keyWord" type="text" class="form-control" id="keyWord" placeholder="请输入关键词进行搜索">
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> 搜索</button>
+        </form>
+    </div>
+</nav>
+
+<div class="list-box">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th>选择</th>
+            <th>编号</th>
+            <th>昵称</th>
+            <th>头像</th>
+            <th>手机号</th>
+            <th>地址</th>
+            <th>城市</th>
+            <th>注册时间</th>
+            <th>最后登陆时间</th>
+            <!--<th>操作(是否推荐到首页)</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <volist name="list" id="vo">
+            <tr>
+                <td>
+                    <input type="checkbox" class="uid" name="user_id" value="<{$vo.id}>"/>
+                </td>
+
+                <td><{$vo.id}></td>
+                <td><{$vo.nickName}></td>
+                <td>
+                    <if condition="$vo['avatarUrl']">
+                        <img src="<{$vo.avatarUrl}>" width="70px" height="70px" alt="暂无用户头像"/>
+                        <else/>
+
+                    </if>
+                </td>
+                <td><{$vo.wx_phone}></td>
+                <td><{$vo.province}></td>
+                <td><{$vo.city}></td>
+                <td><{$vo.addTime|date="Y-m-d H:i:s",###}></td>
+                <td><{$vo.lastTime|date="Y-m-d H:i:s",###}></td>
+            </tr>
+        </volist>
+        </tbody>
+        <tr>
+            <td colspan="10" class="td_2">
+                <input type="button" name="button" class="btn btn-primary" id='button' value="确  定"
+                       onclick="window_opener();" style="width: 100px;height: 30px;">
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<ul class="pagination">
+    <{$page}>
+</ul>
+<script src="__PUBLIC__/js/status/status.js"></script>
+<script>
+
+    var userIDS = [];
+    var editUserIDS = [];
+
+    showUserID();
+    checkUserID();
+
+    //将sessionStorage的uid选中
+    function showUserID() {
+        if(sessionStorage.getItem('userID')){
+            var sessionStorage_userIDS = JSON.parse(sessionStorage.getItem('userID'));
+            // console.log(sessionStorage_userIDS);
+            var showUserIDS = $('tbody .uid');
+            // console.log(showUserIDS);
+            $.each(sessionStorage_userIDS,function (ind, val) {
+                $.each(showUserIDS, function (index, value) {
+                    var sessionStorageUid = val;
+                    var showUid = $(value).val();
+                    // console.log(sessionStorageUid)
+                    // console.log(showUid)
+                    if(sessionStorageUid == showUid){
+                        $(showUserIDS[index]).attr('checked', true);
+                    }
+
+                });
+            });
+        }
+    }
+
+
+    //控制复选框
+    function checkUserID() {
+        $(document).on("click", ".uid", function () {
+            var that = $(this);
+            var id = that.val();
+            if ($(this).attr("checked")) {
+                saveUserID(id)
+            } else {
+                clearUserID(id);
+            }
+
+        })
+    }
+
+    //加入sessionStorage
+    function saveUserID(uid) {
+        if(sessionStorage.getItem('userID')){
+            editUserIDS = JSON.parse(sessionStorage.getItem('userID'));
+            // console.log(typeof  editUserIDS)
+            editUserIDS.push(uid);
+            sessionStorage.setItem('userID', JSON.stringify(editUserIDS));
+
+        }else{
+            userIDS.push(uid);
+            sessionStorage.setItem('userID', JSON.stringify(userIDS));
+        }
+
+    }
+
+    //移除sessionStorage
+    function clearUserID(uid) {
+        if (JSON.parse(sessionStorage.getItem('userID')).indexOf(uid) != -1) {
+            var newarr = JSON.parse(sessionStorage.getItem('userID'));
+            var userIDkey = newarr.indexOf(uid);
+            var x = newarr.splice(userIDkey, 1)
+            sessionStorage.setItem('userID', JSON.stringify(newarr));
+        }
+    }
+
+
+    //选择返回.
+    function window_opener() {
+        var obj = document.getElementsByName('user_id'); //选择所有name="'test'"的对象，返回数组
+        //取到对象数组后，我们来循环检测它是不是被选中
+        var s = '';
+        for (var i = 0; i < obj.length; i++) {
+            if (obj[i].checked) s += obj[i].value + ','; //如果选中，将value添加到变量s中
+        }
+
+        //那么现在来检测s的值就知道选中的复选框的值了
+        if (s == '') {
+            alert('你还没有选择任何内容！');
+            return false;
+        };
+        var uids = JSON.parse(sessionStorage.getItem('userID')).join();
+
+        window.opener.document.getElementById('user_id').value = uids;
+
+        window.close();
+    }
+</script>
+</body>
+</html>

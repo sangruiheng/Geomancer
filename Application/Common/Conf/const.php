@@ -9,29 +9,9 @@
 return array(
 
 
-    'Story' => array(
-        //听故事
-        'ListenStory' => 0,
-
-        //讲故事
-        'TellingStory' => 1,
-
-        //免费
-        'Free' => 0,
-
-        //收费
-        'Charge' => 1,
-
-
-        //正常故事
-        'NormalStory' => 0,
-
-        //草稿箱故事
-        'DraftsStory' => 1,
-
-
+    'Web' => array(
         //图片路径
-        "img_prefix" => "http://www.books111.com/Uploads/Manage/",
+        "img_prefix" => "http://www.geomancer111.com/Uploads/Manage/",
     ),
 
     'WX' => array(

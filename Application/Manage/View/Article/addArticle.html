@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>无标题文档</title>
+    <include file="Common:common"/>
+    <load href="__PUBLIC__/css/common/rightCommon.css"/>
+
+    <load href="__PUBLIC__/tools/ueditor1_4_3-utf8-php/ueditor.config.js" />
+    <load href="__PUBLIC__/tools/ueditor1_4_3-utf8-php/ueditor.all.min.js" />
+    <load href="__PUBLIC__/tools/ueditor1_4_3-utf8-php/lang/zh-cn/zh-cn.js" />
+    <load href="__PUBLIC__/tools/webuploader-0.1.5/dist/webuploader.css" />
+    <load href="__PUBLIC__/tools/webuploader-0.1.5/examples/image-upload/style.css" />
+
+
+    <script>
+        $(document).ready(function (e) {
+            hideBox();
+            
+            getEditData(function (e) {
+                // $('#banner_img').siblings('.uploadSimple').after('<img class="pro-imgView" src="/Uploads/Manage/' + e.banner_img + '" width="34" height="34" alt="">');
+            });
+        });
+    </script>
+    <style>
+
+        /*复选框样式*/
+        .checkList {
+            border: 0 !important;
+            cursor: pointer;
+        }
+
+        .checkList tr:last-child > td {
+            border-bottom: 0;
+        }
+
+        .checkList td {
+            text-align: center;
+        }
+
+        .checkList {
+            border: 0 !important;
+            cursor: pointer;
+        }
+
+        .checkList tr:last-child > td {
+            border-bottom: 0;
+        }
+
+        .checkList td {
+            text-align: center;
+        }
+
+
+        /*check搜索*/
+        .s-search>input {
+            float: left;
+            width: 60%;
+        }
+        .s-search>button {
+            float: left;
+            margin-left: 10px;
+        }
+
+        /*上传视频*/
+        .s_movie {
+            position: relative;
+            display: inline-block;
+            background: #D0EEFF;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            padding: 4px 12px;
+            overflow: hidden;
+            color: #1E88C7;
+            text-decoration: none;
+            text-indent: 0;
+            line-height: 20px;
+        }
+
+        .s_movie input {
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .s_movie:hover {
+            background: #AADFFD;
+            border-color: #78C3F3;
+            color: #004974;
+            text-decoration: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<!--alert弹窗Start  -->
+<div id="top-alert" class="fixed alert alert-error" style="display:none;">
+    <button class="close fixed" style="margin-top: 4px;">&times;</button>
+    <div class="alert-content">这是内容</div>
+</div>
+<!--alert弹窗end  -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#"><i class="fa fa-plus" aria-hidden="true"></i> <span id="changeTitle">添加</span>推文</a>
+    </div>
+</nav>
+
+<div class="add-box">
+    <form class="addForm ajax-alert" id="form1" name="form1" method="post"
+          action="__APP__/Article/addArticleData/controller/Article/backUrl/articleList/table/article">
+        <input name="id" type="hidden" id="id" value="<{$_GET['id']}>"/>
+        <input name="geomancer_id" type="hidden" id="geomancer_id" value=""/>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+
+            <tr>
+                <td align="center">文章标题</td>
+                <td><input type="text" name="article_title" id="article_title" class="form-control" placeholder="请输入文章标题"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center">选择大师</td>
+                <td style="padding:0;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="checkList">
+                        <tbody id="checkList">
+                        <tr>
+                            <td colspan="4">
+                                数据加载中…
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td align="center">上传类型</td>
+                <td colspan="3">
+                    <select class="form-control article-upload-type" name="article-upload-type" >
+                        <option value="">--请选择--</option>
+                        <option value="1">图片</option>
+                        <option value="2">视频</option>
+                    </select>
+                </td>
+            </tr>
+
+                <tr class="s-box-video">
+                    <td align="center">视频</td>
+                    <td>
+                        <button class="s_movie">上传视频
+                            <input type="file" name="article_video_upload">
+                        </button>
+                </tr>
+
+                <tr class="s-box-video">
+                    <td align="center">已上传视频</td>
+                    <td class="uploaded">
+                    </td>
+                    <input type="hidden" name="article_video" class="article_video" value="">
+                </tr>
+
+
+
+            <tr class="s-box-img" >
+                <td align="center">文章图片<font color="red">&nbsp;&nbsp;*</font><br/><font color="#e61111" class="imgSize">750*750</font></td>
+                <td colspan="5">
+                    <div id="uploader">
+                        <div class="queueList">
+                            <div id="dndArea" class="placeholder">
+                                <div id="filePickers"></div>
+                                <p>或将照片拖到这里，单次最多可选300张</p>
+                            </div>
+                        </div>
+                        <div class="statusBar" style="display:none;">
+                            <div class="progress"><span class="text">0%</span><span class="percentage"></span></div>
+                            <div class="info"></div>
+                            <div class="btns">
+                                <div id="filePickers1"></div>
+                                <div class="uploadBtn">开始上传</div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr class="s-box-img">
+                <td align="center">已上传图片</td>
+                <td colspan="5">
+                    <div id="imgShow">
+
+                    </div>
+                    <div id="imgShow1">
+
+                    </div>
+                    <input name="listCover" type="hidden" id="listCover" datatype="*" nullmsg="请上传图片并设置列表封面" value=""/>
+                    <input name="bannerImg" type="hidden" id="bannerImg" datatype="*" nullmsg="请上传图片并设置Banner头图"/>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td align="center">文章内容<font color="red">&nbsp;&nbsp;</font></td>
+                <td colspan="3">
+                    <textarea name="article_content" id="article_content" cols="30" rows="3"
+                              style="width:100%;height:100px; margin:10px 0px;" ></textarea>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <button class="btn btn-success ajax-post" type="submit" id="saveButton"
+                            target-form="form-horizontal"><i class="fa fa-check" aria-hidden="true"></i> 添加
+                    </button>
+                    <button type="button" class="btn btn-default" id="cancelButton"><i class="fa fa-times"
+                                                                                       aria-hidden="true"></i> 取消
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<load href="__PUBLIC__/tools/webuploader-0.1.5/dist/webuploader.js" />
+<load href="__PUBLIC__/tools/webuploader-0.1.5/examples/image-upload/upload.js" />
+
+<script>
+    
+    var page1 = [];
+    var arr1 = [];
+    openList1();
+    changeSelect();
+
+    //控制隐藏显示
+    function hideBox() {
+        $('.s-box-img').hide();
+        $('.s-box-video').hide();
+    }
+
+    //select 切换
+    function changeSelect() {
+        $('select.article-upload-type').on("change", function () {
+        // $('select.article-upload-type').change(function(event) {
+            var article_upload_id = $(this).val();
+            switch (article_upload_id) {
+                case '1':
+                    $('.s-box-img').show();
+                    $('.s-box-video').hide();
+                    break;
+                case '2':
+                    $('.s-box-video').show();
+                    $('.s-box-img').hide();
+                    break;
+            }
+
+        });
+    }
+
+
+
+    //加载用户列表
+    function openList1() {
+        var keyWord1 = $("#keyWord").val();
+        $.post(APP + '/Customer/get_geomancer', {page_id: page1,keyWord:keyWord1}, function (res) {
+            console.log(res);
+            var html = '';
+            html += `<tr>
+                    <td colspan="4" class="s-search">
+                        <input name="keyWord" type="text" class="form-control" id="keyWord" placeholder="请输入关键词进行搜索">
+                        <button type="button" class="btn btn-primary" onclick="openList1();" ><i class="fa fa-search" aria-hidden="true"></i>搜索</button>
+                    </td>
+                 </tr>`;
+            if(res.code == 200){
+                for (var i = 0; i < res.data.length; i++) {
+                    html +=
+                        `<tr>
+                            <td><input type="radio" name="selectElement" class="selectElement" data-json="${JSON.stringify(res.data[i]).replace(/"/g, '&quot;')}" data-name="multi-select" value="${res.data[i].id}" /></td>
+                            <td><img style="width: 50px;height: 50px;border-radius: 5px;" src="${res.data[i].avatarUrl}"></td>
+                            <td>${res.data[i].geomancer_name}</td>
+                        </tr>
+                    `;
+                }
+                html += `<tr>
+                            <td colspan="4">
+                                <button type="button" class="btn btn-default" onclick="prevPage('openList1');">上一页</button>
+                                <button type="button" class="btn btn-default" onclick="nextPage('openList1');">下一页</button>
+                            </td>
+                         </tr>`;
+                $('#checkList').html(html);
+
+                showSearch($('#keyWord'), keyWord1);
+
+                initCheck($('input[data-name=multi-select]'));
+
+                //点击后的回调
+                checkCallback($('input.selectElement'),arr1,$('#geomancer_id'));
+
+                //取消点击后的回调
+                // unCheckCallback($('input.selectElement'),arr1,$('#geomancer_id'));
+
+                checkList(arr1, $('.selectElement'));
+
+                showHover($(".checkList tr"));
+
+            }else{
+                showError();
+            }
+
+        });
+    }
+
+
+
+    uploadStory();
+    //上传音频
+    function uploadStory() {
+        $('.s_movie input[type="file"]').on('change', function () {
+            $.showLoading('正在提交……');
+            var formData = new FormData();
+            formData.append('file', $('input[name="article_video_upload"]')[0].files[0]);
+            $.ajax({
+                url: APP + '/Article/uploadArticleVideo',
+                type: 'POST',
+                cache: false,
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 200) {
+                        $.closeLoading(function(){
+                        });
+
+                        var str = `
+                                <video width="320" height="240" controls>
+                                  <source src='/Uploads/Manage/${res.data.url}' type="video/mp4">
+                                </video>
+                                                            `;
+                        $('.uploaded').html(str);
+                        $('.article_video').val(res.data.url);
+                    }
+                },
+                fail: function (err) {
+                    console.log(err);
+                }
+            });
+        });
+    }
+
+
+
+    //多图上传时添加图片的回调
+    function addCallback() {
+        // var imgNameVal = $('#listCover').val();
+        // var imgNameVal2 = $('#bannerImg').val();
+        // if (imgNameVal != '' && imgNameVal2 != '') {
+        //   alert('为了节省服务器资源，请先删除现有图片！');
+        //   return false;
+        // }
+    }
+
+    //多图上传成功回调 from upload.js
+    function uploadCallback(file,response) {
+
+        var uploadHtml = '';
+        uploadHtml += '<div class="upload-listDiv">';
+        uploadHtml += '<img src="/Uploads/Manage/' + response.url + '" width="120" height="120">';
+        // uploadHtml += '<input type="hidden" name="hid[]"  value="/Uploads/Manage/' + response.url + '">';
+        uploadHtml += '<div class="upload-ldButton" data-url="' + response.url + '">';
+        // uploadHtml += '<a class="btn btn-defaule upload-select" onclick="javascript:setThumb(this)"  style="float:left"><i class="fa fa-book" aria-hidden="true">设为缩略图</i> <input type="hidden" class="isthumb" name="is_thumb[]" value="0"></a >';
+        uploadHtml += '</div>';
+        uploadHtml += '</div>';
+        $('div#imgShow').append(uploadHtml);
+
+        var UrlHtml = '<input type="hidden" name="hid[]"  value="/Uploads/Manage/' + response.url + '">';
+        $('div#imgShow1').append(UrlHtml);
+
+    }
+
+
+
+
+    // -------------public-----------------
+
+    //check初始化
+    function initCheck(multiselect) {
+        multiselect.iCheck({
+            checkboxClass: 'icheckbox_flat-blue',
+            radioClass: 'iradio_flat-blue'
+        });
+    }
+
+
+    //点击后的回调
+    function checkCallback(selectElement, arr, hiddenID) {
+        selectElement.on('ifChecked', function (event) {
+
+            var data = JSON.parse(event.target.dataset.json);
+            // console.log(data);
+            // if (arr.indexOf(data.id) == -1) {
+            //     arr.push(data.id);
+            // }
+            // console.log(arr);
+            hiddenID.val(data.id);
+        });
+    }
+
+    //取消点击后的回调
+    function unCheckCallback(selectElement, arr, hiddenID) {
+        //取消点击后的回调
+        selectElement.on('ifUnchecked', function (event) {
+            var data = JSON.parse(event.target.dataset.json);
+            // console.log(data);
+            arr.splice($.inArray(data.id, arr), 1);
+            console.log(arr);
+            hiddenID.val(arr.join(','));
+
+        });
+    }
+
+
+    //选中
+    function checkList(arr1, selectElement) {
+        if (arr1) {
+            var checkList = selectElement;
+            $.each(arr1, function (index, value) {
+                $.each(checkList, function (ind, val) {
+                    if (value == $(val).val()) {
+                        $(checkList[ind]).iCheck('check');
+                    }
+                });
+            });
+        }
+    }
+
+    //下一页
+    function nextPage(s_openList) {
+        if(s_openList == 'openList1'){
+            page1++;
+            openList1();
+        } else if(s_openList == 'openList2'){
+            page2++;
+            openList2();
+        }
+
+    }
+
+    //上一页
+    function prevPage(s_openList) {
+        if(s_openList == 'openList1'){
+            if (page1 == 1) {
+                page1 = 1;
+            } else {
+                page1--;
+            }
+            openList1();
+        } else if(s_openList == 'openList2'){
+            if (page2 == 1) {
+                page2 = 1;
+            } else {
+                page2--;
+            }
+            openList2();
+        }
+    }
+
+
+    //hover
+    function showHover(element) {
+        element.hover(function () {
+            $(this).css("background-color", "#f7f7f7");
+        }, function () {
+            $(this).css("background-color", "#fff");
+        });
+    }
+
+    //搜索回显
+    function showSearch(element, keyWord) {
+        element.val(keyWord);
+
+    }
+
+
+    //错误提示
+    function showError() {
+        $.show({
+            title: '提示',
+            isConfirm: false,
+            content: '暂无内容'
+        });
+        return false;
+    }
+
+</script>
+
+
+</body>
+</html>
